@@ -2,9 +2,13 @@ lockfileVersion: 5.4
 
 specifiers:
   csstype: ^3.1.1
+  kebab-case: ^1.0.2
   tsup: ^6.7.0
   typescript: ^5.0.3
   vitest: ^0.29.8
+
+dependencies:
+  kebab-case: 1.0.2
 
 devDependencies:
   csstype: 3.1.1
@@ -673,6 +677,10 @@ packages:
   /jsonc-parser/3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
     dev: true
+
+  /kebab-case/1.0.2:
+    resolution: {integrity: sha512-7n6wXq4gNgBELfDCpzKc+mRrZFs7D+wgfF5WRFLNAr4DA/qtr9Js8uOAVAfHhuLMfAcQ0pRKqbpjx+TcJVdE1Q==}
+    dev: false
 
   /lilconfig/2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
