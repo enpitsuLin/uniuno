@@ -1,0 +1,28 @@
+{
+  "name": "uniuno",
+  "version": "0.1.0",
+  "description": "transform css or style value to unocss utilities",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "csstype": "^3.1.1",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.3",
+    "vitest": "^0.29.8"
+  }
+}
