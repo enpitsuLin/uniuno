@@ -3,20 +3,24 @@ import { propertiesToUnocss } from '../src';
 import { positionMap } from '../src/utils/mapping';
 
 describe('background rules test', () => {
+  it('transform background-color properly', () => {
+    expect(propertiesToUnocss({ backgroundColor: 'white' })).toEqual(
+      `bg-white`
+    );
+
+    expect(propertiesToUnocss({ backgroundColor: '#ccc' })).toEqual(`bg-#ccc`);
+
+    expect(propertiesToUnocss({ backgroundColor: 'var(--bg-color)' })).toEqual(
+      `bg-$bg-color`
+    );
+  });
+
   it('transform background-image properly', () => {
     const ret = propertiesToUnocss({
       backgroundImage: 'url(".")'
     });
 
     expect(ret).toEqual(`bg-[url('.')]`);
-  });
-
-  it('transform background-image with css variables properly', () => {
-    const ret = propertiesToUnocss({
-      backgroundImage: 'var(--bg-var)'
-    });
-
-    expect(ret).toEqual(`bg-$bg-var`);
   });
 
   it('transform background-size properly', () => {
@@ -73,8 +77,8 @@ describe('background rules test', () => {
     });
 
     expect(propertiesToUnocss({ backgroundPosition: '100% 100%' })).toEqual(
-        `bg-[position:100%_100%]`
-      );
+      `bg-[position:100%_100%]`
+    );
   });
 
   it('transform background-repeat properly', () => {

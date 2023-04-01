@@ -2,13 +2,16 @@ import { Rule } from '../types';
 import { bracketWithHint, positionMap } from '../utils';
 
 export const backgroundRules: Rule[] = [
+  // color
+  [/^background-color: var\(--(.+)\)$/, (_, p1) => `bg-$${p1}`],
+  [/^background-color: (.+)$/, 'bg-$1'],
+
   // TODO: gradient
   //   gradient background to `bg-gradient-[type] form-[color] via-[color] to-[color]`
   //   gradient background shape to `bg-gradient-[position]`
 
   // images
   [/^background-image: none$/, `bg-none`],
-  [/^background-image: var\(--(.+)\)$/, (_, p1) => `bg-$${p1}`],
   [/^background-image: url\("(.+)"\)$/, `bg-[url('$1')]`],
 
   // size
