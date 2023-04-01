@@ -1,27 +1,30 @@
 import kebabCase from 'kebab-case';
-import { SHORTHAND_NOT_SUPPORT } from './constants';
-import {
-  StandardProperties,
-  StandardProperty,
-  StandardShorthandProperty
-} from './types';
-
-function isShorthandProperty(
-  property: any
-): property is StandardShorthandProperty {
-  return SHORTHAND_NOT_SUPPORT.includes(property);
-}
+import { backgroundRules } from './rules/background';
+import { Rule, StandardProperties, StandardProperty } from './types';
 
 export function transformProperty<P extends StandardProperty>(
   property: P,
   value: StandardProperties[P]
 ): string {
-  if (isShorthandProperty(property)) {
-    // TODO: convert shorthand to longhand or just use value directly
-    throw new Error("Shorthand properties don't support");
-  }
-  if (false) {
-    // TODO: to transform special utilities
-  }
-  return `${kebabCase(property)}-${value}`;
+  let ret: string | undefined = undefined;
+  shortcutPropertiesRules.some(([regexp, replaceTo]) => {
+    const CSSValue = `${kebabCase(property)}: ${value}`;
+
+    if (CSSValue.match(regexp)) {
+      //@ts-expect-error: as its overload but error
+      ret = CSSValue.replace(regexp, replaceTo);
+    }
+
+    return CSSValue.match(regexp);
+  });
+  if (!ret) return `${kebabCase(property)}-${value}`;
+  return ret;
 }
+
+export const shortcutPropertiesRules: Rule[] = [
+  [/^width: var\(--(.+)\)$/, (_, p1) => `w-$${p1}`],
+  [/^width: (.+)$/, 'w-$1'],
+  [/^height: var\(--(.+)\)$/, (_, p1) => `h-$${p1}`],
+  [/^height: (.+)$/, 'h-$1'],
+  ...backgroundRules
+];

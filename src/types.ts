@@ -23,3 +23,6 @@ export type StandardShorthandProperty = keyof StandardShorthandProperties;
 export type StandardProperty =
   | StandardLonghandProperty
   | StandardShorthandProperty;
+
+export type RuleReplacer = Parameters<String['replace']>[1] | string;
+export type Rule = [regexp: RegExp, replacer: RuleReplacer];
