@@ -35,6 +35,10 @@ describe('background rules test', () => {
     expect(propertiesToUnocss({ backgroundSize: '100% 100%' })).toEqual(
       `bg-[size:100%_100%]`
     );
+
+    expect(propertiesToUnocss({ backgroundSize: 'calc(100% + 10px) calc(100% + 10px)' })).toEqual(
+      `bg-[size:calc(100%_+_10px)_calc(100%_+_10px)]`
+    );
   });
 
   it('transform background-attach properly', () => {
@@ -78,6 +82,10 @@ describe('background rules test', () => {
 
     expect(propertiesToUnocss({ backgroundPosition: '100% 100%' })).toEqual(
       `bg-[position:100%_100%]`
+    );
+
+    expect(propertiesToUnocss({ backgroundPosition: 'calc(100% + 10px) calc(100% + 10px)' })).toEqual(
+      `bg-[position:calc(100%_+_10px)_calc(100%_+_10px)]`
     );
 
     // error message

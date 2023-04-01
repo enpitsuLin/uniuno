@@ -1,3 +1,3 @@
 export function bracketWithHint(value: string, hint?: string) {
-  return `[${hint ? `${hint}:` : ''}${value.replace(' ', '_')}]`;
+  return `[${hint ? `${hint}:` : ''}${value.replace(/ /g, '_')}]`;
 }
