@@ -33,6 +33,10 @@ export const backgroundRules: Rule[] = [
       return `bg-${bracketWithHint(p1, 'position')}`;
     }
   ],
+  [
+    /^background-position-[x|y]: (.+)$/,
+    new Error("background-position-x|y didn't support in unocss")
+  ],
 
   // repeats
   [

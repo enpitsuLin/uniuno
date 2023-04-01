@@ -11,13 +11,19 @@ export function transformProperty<P extends StandardProperty>(
     const CSSValue = `${kebabCase(property)}: ${value}`;
 
     if (CSSValue.match(regexp)) {
-      //@ts-expect-error: as its overload but error
-      ret = CSSValue.replace(regexp, replaceTo);
+      if (replaceTo instanceof Error) {
+        // log the error message and output empty
+        console.error(replaceTo.message);
+        ret = '';
+      } else {
+        //@ts-expect-error: as its overload but error
+        ret = CSSValue.replace(regexp, replaceTo);
+      }
     }
 
     return CSSValue.match(regexp);
   });
-  if (!ret) return `${kebabCase(property)}-${value}`;
+  if (typeof ret === 'undefined') return `${kebabCase(property)}-${value}`;
   return ret;
 }
 

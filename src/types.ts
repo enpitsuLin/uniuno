@@ -25,4 +25,4 @@ export type StandardProperty =
   | StandardShorthandProperty;
 
 export type RuleReplacer = Parameters<String['replace']>[1] | string;
-export type Rule = [regexp: RegExp, replacer: RuleReplacer];
+export type Rule = [regexp: RegExp, replacer: RuleReplacer | Error];

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { propertiesToUnocss } from '../src';
 import { positionMap } from '../src/utils/mapping';
 
@@ -79,6 +79,11 @@ describe('background rules test', () => {
     expect(propertiesToUnocss({ backgroundPosition: '100% 100%' })).toEqual(
       `bg-[position:100%_100%]`
     );
+
+    // error message
+    const spy = vi.spyOn(console, 'error');
+    propertiesToUnocss({ backgroundPositionX: 'center' });
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('transform background-repeat properly', () => {
