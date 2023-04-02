@@ -28,6 +28,7 @@
     "vitest": "^0.29.8"
   },
   "dependencies": {
+    "camelcase": "^7.0.1",
     "kebab-case": "^1.0.2"
   }
 }

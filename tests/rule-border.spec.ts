@@ -148,6 +148,6 @@ describe.skip('Divide', () => {
   // divide was nested css utilities which doesn't implemented right now
 });
 
-describe('Outline', () => {});
+describe.skip('Outline', () => {});
 
-describe('Ring', () => {});
+describe.skip('Ring', () => {});
