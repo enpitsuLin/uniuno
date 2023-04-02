@@ -108,10 +108,10 @@ describe('Border', () => {
 
   it('transform border-color longhand with direction properly', () => {
     Object.entries(directionMap).forEach(([key, value]) => {
-      const property = `borderColor${capitalize(key)}`;
+      const property = `border${capitalize(key)}Color`;
 
       expect(propertiesToUnocss({ [property]: '#fff' })).toEqual(
-        `border-${value}-0`
+        `border-${value}-#fff`
       );
 
       expect(propertiesToUnocss({ [property]: 'var(--border-color)' })).toEqual(
@@ -127,7 +127,7 @@ describe('Border', () => {
   // border-style
   it('transform border-style shorthand properly', () => {
     expect(propertiesToUnocss({ borderStyle: 'dotted' })).toEqual(
-      'border-dashed'
+      'border-dotted'
     );
   });
 
