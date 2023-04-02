@@ -30,9 +30,10 @@ convert css property to unocss utilities
   - [x] Background Image
   - [ ] Gradient Color Stops
 - [ ] Borders
-  - [ ] Border Radius
-  - [ ] Border Width
-  - [ ] Border Style
+  - [x] Border Radius
+  - [x] Border Width
+  - [x] Border Color
+  - [x] Border Style
   - [ ] Divide Width
   - [ ] Divide Color
   - [ ] Divide Style
