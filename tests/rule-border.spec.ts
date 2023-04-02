@@ -1,7 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { propertiesToUnocss } from '../src';
 import { capitalize, cornersMap, directionMap } from '../src/utils';
-import exp from 'constants';
 
 describe('Border', () => {
   it('transform border-radius shorthand properly', () => {
