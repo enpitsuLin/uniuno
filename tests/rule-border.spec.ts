@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { propertiesToUnocss } from '../src';
 import { capitalize, cornersMap, directionMap } from '../src/utils';
+import exp from 'constants';
 
 describe('Border', () => {
   it('transform border-radius shorthand properly', () => {
@@ -148,6 +149,40 @@ describe.skip('Divide', () => {
   // divide was nested css utilities which doesn't implemented right now
 });
 
-describe.skip('Outline', () => {});
+describe('Outline', () => {
+  it('transform outline-width properly', () => {
+    expect(propertiesToUnocss({ outlineWidth: '1px' })).toEqual('outline-1');
+  });
+
+  it('transform outline-color properly', () => {
+    expect(propertiesToUnocss({ outlineColor: '#fff' })).toEqual(
+      'outline-#fff'
+    );
+
+    expect(propertiesToUnocss({ outlineColor: 'rgb(255, 255, 255)' })).toEqual(
+      'outline-[rgb(255,255,255)]'
+    );
+  });
+
+  it('transform outline-style properly', () => {
+    expect(propertiesToUnocss({ outlineStyle: 'solid' })).toEqual(
+      'outline-solid'
+    );
+
+    expect(propertiesToUnocss({ outlineStyle: 'dashed' })).toEqual(
+      'outline-dashed'
+    );
+  });
+
+  it('transform outline-offset properly', () => {
+    expect(propertiesToUnocss({ outlineOffset: '0px' })).toEqual(
+      'outline-offset-0'
+    );
+
+    expect(propertiesToUnocss({ outlineOffset: '1pxd' })).toEqual(
+      'outline-offset-1'
+    );
+  });
+});
 
 describe.skip('Ring', () => {});
