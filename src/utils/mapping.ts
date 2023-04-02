@@ -29,3 +29,25 @@ export const positionMap: Record<string, string> = Object.assign(
   {},
   ...basePositionMap.map((p) => ({ [p]: p.replace(' ', '-') }))
 );
+
+export const cornersMap: Record<string, string> = {
+  startStart: 'ss',
+  startEnd: 'se',
+  endEnd: 'ee',
+  endStart: 'es',
+  topLeft: 'tl',
+  topRight: 'tr',
+  bottomRight: 'br',
+  bottomLeft: 'bl'
+};
+
+export const directionMap: Record<string, string> = {
+  top: 't',
+  right: 'r',
+  left: 'l',
+  bottom: 'b',
+  inlineStart: 's',
+  inlineEnd: 'e',
+  blockStart: 'bs',
+  blockEnd: 'be'
+};

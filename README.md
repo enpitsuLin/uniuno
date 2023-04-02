@@ -30,6 +30,20 @@ convert css property to unocss utilities
   - [x] Background Image
   - [ ] Gradient Color Stops
 - [ ] Borders
+  - [ ] Border Radius
+  - [ ] Border Width
+  - [ ] Border Style
+  - [ ] Divide Width
+  - [ ] Divide Color
+  - [ ] Divide Style
+  - [ ] Outline Width
+  - [ ] Outline Color
+  - [ ] Outline Style
+  - [ ] Outline Offset
+  - [ ] Ring Width
+  - [ ] Ring Color
+  - [ ] Ring Offset Width
+  - [ ] Ring Offset Color
 - [ ] Effects
 - [ ] Filters
 - [ ] Tables
