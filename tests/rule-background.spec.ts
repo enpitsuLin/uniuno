@@ -13,6 +13,10 @@ describe('background rules test', () => {
     expect(propertiesToUnocss({ backgroundColor: 'var(--bg-color)' })).toEqual(
       `bg-$bg-color`
     );
+
+    expect(
+      propertiesToUnocss({ backgroundColor: 'rgba(255, 255, 255)' })
+    ).toEqual(`bg-[rgba(255,255,255)]`);
   });
 
   it('transform background-image properly', () => {
@@ -36,9 +40,11 @@ describe('background rules test', () => {
       `bg-[size:100%_100%]`
     );
 
-    expect(propertiesToUnocss({ backgroundSize: 'calc(100% + 10px) calc(100% + 10px)' })).toEqual(
-      `bg-[size:calc(100%_+_10px)_calc(100%_+_10px)]`
-    );
+    expect(
+      propertiesToUnocss({
+        backgroundSize: 'calc(100% + 10px) calc(100% + 10px)'
+      })
+    ).toEqual(`bg-[size:calc(100%_+_10px)_calc(100%_+_10px)]`);
   });
 
   it('transform background-attach properly', () => {
@@ -84,9 +90,11 @@ describe('background rules test', () => {
       `bg-[position:100%_100%]`
     );
 
-    expect(propertiesToUnocss({ backgroundPosition: 'calc(100% + 10px) calc(100% + 10px)' })).toEqual(
-      `bg-[position:calc(100%_+_10px)_calc(100%_+_10px)]`
-    );
+    expect(
+      propertiesToUnocss({
+        backgroundPosition: 'calc(100% + 10px) calc(100% + 10px)'
+      })
+    ).toEqual(`bg-[position:calc(100%_+_10px)_calc(100%_+_10px)]`);
 
     // error message
     const spy = vi.spyOn(console, 'error');

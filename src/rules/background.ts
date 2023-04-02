@@ -1,10 +1,10 @@
 import { Rule } from '../types';
-import { bracketWithHint, positionMap } from '../utils';
+import { bracketWithHint, positionMap, parseColor } from '../utils';
 
 export const backgroundRules: Rule[] = [
   // color
   [/^background-color: var\(--(.+)\)$/, (_, p1) => `bg-$${p1}`],
-  [/^background-color: (.+)$/, 'bg-$1'],
+  [/^background-color: (.+)$/, (_, p1) => `bg-${parseColor(p1)}`],
 
   // TODO: gradient
   //   gradient background to `bg-gradient-[type] form-[color] via-[color] to-[color]`
