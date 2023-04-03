@@ -50,6 +50,8 @@ describe('Border', () => {
 
   // border-width
   it('transform border-width shorthand properly', () => {
+    expect(propertiesToUnocss({ borderWidth: 'thin' })).toEqual(`border-thin`);
+
     expect(propertiesToUnocss({ borderWidth: '0px' })).toEqual('border-0');
 
     // there are two flavor `rounded` or `rounded-1`
@@ -72,6 +74,10 @@ describe('Border', () => {
   it('transform border-width longhand with direction properly', () => {
     Object.entries(directionMap).forEach(([key, value]) => {
       const property = `border${capitalize(key)}Width`;
+
+      expect(propertiesToUnocss({ [property]: 'thin' })).toEqual(
+        `border-${value}-thin`
+      );
 
       expect(propertiesToUnocss({ [property]: '0' })).toEqual(
         `border-${value}-0`
