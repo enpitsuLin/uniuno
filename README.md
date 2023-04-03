@@ -37,10 +37,10 @@ convert css property to unocss utilities
   - [ ] Divide Width
   - [ ] Divide Color
   - [ ] Divide Style
-  - [ ] Outline Width
-  - [ ] Outline Color
-  - [ ] Outline Style
-  - [ ] Outline Offset
+  - [x] Outline Width
+  - [x] Outline Color
+  - [x] Outline Style
+  - [x] Outline Offset
   - [ ] Ring Width
   - [ ] Ring Color
   - [ ] Ring Offset Width
