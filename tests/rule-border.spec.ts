@@ -150,6 +150,8 @@ describe.skip('Divide', () => {
 
 describe('Outline', () => {
   it('transform outline-width properly', () => {
+    expect(propertiesToUnocss({ outlineWidth: '0px' })).toEqual('outline-0');
+
     expect(propertiesToUnocss({ outlineWidth: '1px' })).toEqual('outline-1');
   });
 
@@ -178,7 +180,7 @@ describe('Outline', () => {
       'outline-offset-0'
     );
 
-    expect(propertiesToUnocss({ outlineOffset: '1pxd' })).toEqual(
+    expect(propertiesToUnocss({ outlineOffset: '1px' })).toEqual(
       'outline-offset-1'
     );
   });
