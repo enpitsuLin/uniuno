@@ -1,7 +1,7 @@
 import kebabCase from 'kebab-case';
 import { backgroundRules } from './rules/background';
 import { Rule, StandardProperties, StandardProperty } from './types';
-import { borderRules } from './rules/border';
+import { borderRules, outlineRules } from './rules/border';
 
 export function transformProperty<P extends StandardProperty>(
   property: P,
@@ -34,5 +34,6 @@ export const shortcutPropertiesRules: Rule[] = [
   [/^height: var\(--(.+)\)$/, (_, p1) => `h-$${p1}`],
   [/^height: (.+)$/, 'h-$1'],
   ...backgroundRules,
-  ...borderRules
+  ...borderRules,
+  ...outlineRules
 ];
