@@ -1,4 +1,3 @@
-import { describe, expect, it, vi } from 'vitest';
 import { propertiesToUnocss } from '../src';
 
 describe('Width', () => {
