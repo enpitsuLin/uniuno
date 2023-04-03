@@ -7,5 +7,6 @@ export default defineConfig({
   dts: true,
   define: {
     'import.meta.vitest': 'undefined'
-  }
+  },
+  treeshake: true
 });
