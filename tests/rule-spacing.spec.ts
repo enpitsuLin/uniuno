@@ -51,7 +51,7 @@ describe('Margin', () => {
 
       // work but invalid
       expect(propertiesToUnocss({ [property]: '1rem 1rem' })).toEqual(
-        `m-${value}-[1rem 1rem]`
+        `m-${value}-[1rem_1rem]`
       );
     });
   });
