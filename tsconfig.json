@@ -10,8 +10,8 @@
     "resolveJsonModule": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "types": ["node", "vitest/importMeta", "vitest/globals"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "tests/**/*.spec.ts"],
   "exclude": ["dist", "node_modules"]
 }
