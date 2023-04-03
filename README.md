@@ -17,6 +17,9 @@ convert css property to unocss utilities
 - [ ] Layout
 - [ ] Flexbox & Grid
 - [ ] Spacing
+  - [x] Padding
+  - [x] Margin
+  - [ ] Space Between 
 - [x] Sizing
   - [x] Width
   - [x] Min-Width

@@ -3,6 +3,7 @@ import { backgroundRules } from './rules/background';
 import { Rule, StandardProperties, StandardProperty } from './types';
 import { borderRules, outlineRules } from './rules/border';
 import { sizingRules } from './rules/sizing';
+import { spacingRules } from './rules/spacing';
 
 export function transformProperty<P extends StandardProperty>(
   property: P,
@@ -33,5 +34,6 @@ export const shortcutPropertiesRules: Rule[] = [
   ...backgroundRules,
   ...borderRules,
   ...outlineRules,
-  ...sizingRules
+  ...sizingRules,
+  ...spacingRules
 ];
