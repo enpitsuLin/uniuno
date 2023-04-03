@@ -17,7 +17,13 @@ convert css property to unocss utilities
 - [ ] Layout
 - [ ] Flexbox & Grid
 - [ ] Spacing
-- [ ] Sizing
+- [x] Sizing
+  - [x] Width
+  - [x] Min-Width
+  - [x] Max-Width
+  - [x] Height
+  - [x] Min-Height
+  - [x] Max-Height
 - [ ] Typography
 - [ ] Backgrounds
   - [x] Background Attachment
@@ -55,7 +61,6 @@ convert css property to unocss utilities
 - [ ] A11y
 
 </details>
-
 
 ## License
 
