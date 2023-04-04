@@ -1,6 +1,6 @@
 import kebabCase from 'kebab-case'
 import { backgroundRules } from './rules/background'
-import type { Rule, StandardProperties, StandardProperty } from './types'
+import type { CSSProperties, CSSProperty, Rule } from './types'
 import { borderRules, outlineRules } from './rules/border'
 import { sizingRules } from './rules/sizing'
 import { spacingRules } from './rules/spacing'
@@ -13,13 +13,18 @@ export const shortcutPropertiesRules: Rule[] = [
   ...spacingRules,
 ]
 
-export function transformProperty<P extends StandardProperty>(
+export function transformProperty<P extends CSSProperty>(
   property: P,
-  value: StandardProperties[P],
+  value: CSSProperties[P],
 ): string {
   let ret: string | undefined
   shortcutPropertiesRules.some(([regexp, replaceTo]) => {
     const CSSValue = `${kebabCase(property)}: ${value}`
+
+    if (property.match(/Webkit|Moz/)) {
+      console.error('vendor property not support')
+      return ''
+    }
 
     if (CSSValue.match(regexp)) {
       if (replaceTo instanceof Error) {
