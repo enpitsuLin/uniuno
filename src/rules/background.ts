@@ -1,5 +1,5 @@
-import { Rule } from '../types';
-import { bracketWithHint, positionMap, parseColor } from '../utils';
+import type { Rule } from '../types'
+import { bracketWithHint, parseColor, positionMap } from '../utils'
 
 export const backgroundRules: Rule[] = [
   // color
@@ -11,8 +11,8 @@ export const backgroundRules: Rule[] = [
   //   gradient background shape to `bg-gradient-[position]`
 
   // images
-  [/^background-image: none$/, `bg-none`],
-  [/^background-image: url\("(.+)"\)$/, `bg-[url('$1')]`],
+  [/^background-image: none$/, 'bg-none'],
+  [/^background-image: url\("(.+)"\)$/, 'bg-[url(\'$1\')]'],
 
   // size
   [/^background-size: (\S+)$/, 'bg-$1'],
@@ -28,31 +28,33 @@ export const backgroundRules: Rule[] = [
   [
     /^background-position: (.+)$/,
     (_, p1) => {
-      const position = positionMap[p1];
-      if (position) return `bg-${positionMap[p1]}`;
-      return `bg-${bracketWithHint(p1, 'position')}`;
-    }
+      const position = positionMap[p1]
+      if (position)
+        return `bg-${positionMap[p1]}`
+      return `bg-${bracketWithHint(p1, 'position')}`
+    },
   ],
   [
     /^background-position-[x|y]: (.+)$/,
-    new Error("background-position-x|y didn't support in unocss")
+    new Error('background-position-x|y didn\'t support in unocss'),
   ],
 
   // repeats
   [
     /^background-repeat: (.+)$/,
     (_, p1) => {
-      if (p1 === 'no-repeat') {
-        `bg-no-repeat`;
-      } else if (['round', 'space'].includes(p1)) {
-        return `bg-repeat-${p1}`;
-      }
-      return `bg-${p1}`;
-    }
+      if (p1 === 'no-repeat')
+        return 'bg-no-repeat'
+
+      else if (['round', 'space'].includes(p1))
+        return `bg-repeat-${p1}`
+
+      return `bg-${p1}`
+    },
   ],
   // origins
   [
     /^background-origin: (.+)$/,
-    (_, p1) => `bg-origin-${p1.replace(/-box$/, '')}`
-  ]
-];
+    (_, p1) => `bg-origin-${p1.replace(/-box$/, '')}`,
+  ],
+]
