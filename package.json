@@ -2,6 +2,9 @@
   "name": "uniuno",
   "version": "0.1.0",
   "description": "transform css or style value to unocss utilities",
+  "author": "",
+  "license": "MIT",
+  "keywords": [],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -15,20 +18,21 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup",
-    "test": "vitest"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^18.15.11",
-    "csstype": "^3.1.1",
-    "tsup": "^6.7.0",
-    "typescript": "^5.0.3",
-    "vitest": "^0.29.8"
+    "test": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "camelcase": "^7.0.1",
     "kebab-case": "^1.0.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.38.4",
+    "@types/node": "^18.15.11",
+    "csstype": "^3.1.1",
+    "eslint": "^8.37.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.3",
+    "vitest": "^0.29.8"
   }
 }
