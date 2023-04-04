@@ -10,7 +10,11 @@
     "resolveJsonModule": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "types": ["node", "vitest/importMeta", "vitest/globals"]
+    "types": ["node", "vitest/importMeta", "vitest/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   },
   "include": ["src/**/*.ts", "tests/**/*.spec.ts"],
   "exclude": ["dist", "node_modules"]
