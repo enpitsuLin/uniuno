@@ -1,10 +1,10 @@
-import { transformProperty } from './transform';
-import { StandardProperties, StandardProperty } from './types';
+import { transformProperty } from './transform'
+import type { StandardProperties, StandardProperty } from './types'
 
 export function propertiesToUnocss(css: StandardProperties): string {
   return Object.entries(css)
     .map(([property, value]) =>
-      transformProperty(property as StandardProperty, value)
+      transformProperty(property as StandardProperty, value),
     )
-    .join(' ');
+    .join(' ')
 }

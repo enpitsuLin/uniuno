@@ -1,10 +1,11 @@
-import { Rule } from '../types';
-import { toFraction } from '../utils';
+import type { Rule } from '../types'
+import { toFraction } from '../utils'
 
-const parseSizing = (input: string, prefix: string) => {
-  if (input.includes('%')) return `${prefix}-${toFraction(input)}`;
-  return `${prefix}-${input}`;
-};
+function parseSizing(input: string, prefix: string) {
+  if (input.includes('%'))
+    return `${prefix}-${toFraction(input)}`
+  return `${prefix}-${input}`
+}
 
 export const sizingRules: Rule[] = [
   // width
@@ -19,5 +20,5 @@ export const sizingRules: Rule[] = [
   // min-height
   [/^min-height: (.+)$/, (_, p1) => parseSizing(p1, 'min-h')],
   // max-height
-  [/^max-height: (.+)$/, (_, p1) => parseSizing(p1, 'max-h')]
-];
+  [/^max-height: (.+)$/, (_, p1) => parseSizing(p1, 'max-h')],
+]

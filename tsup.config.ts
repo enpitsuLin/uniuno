@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: ['src/index.ts'],
@@ -6,7 +6,7 @@ export default defineConfig({
   clean: true,
   dts: true,
   define: {
-    'import.meta.vitest': 'undefined'
+    'import.meta.vitest': 'undefined',
   },
-  treeshake: true
-});
+  treeshake: true,
+})

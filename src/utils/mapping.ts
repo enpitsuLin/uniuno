@@ -1,4 +1,4 @@
-import type { DataType } from 'csstype';
+import type { DataType } from 'csstype'
 
 const basePositionMap: DataType.Position<string & {}>[] = [
   'top',
@@ -22,13 +22,13 @@ const basePositionMap: DataType.Position<string & {}>[] = [
   'center bottom',
   'center left',
   'center right',
-  'center center'
-];
+  'center center',
+]
 
 export const positionMap: Record<string, string> = Object.assign(
   {},
-  ...basePositionMap.map((p) => ({ [p]: p.replace(' ', '-') }))
-);
+  ...basePositionMap.map(p => ({ [p]: p.replace(' ', '-') })),
+)
 
 export const cornersMap: Record<string, string> = {
   startStart: 'ss',
@@ -38,8 +38,8 @@ export const cornersMap: Record<string, string> = {
   topLeft: 'tl',
   topRight: 'tr',
   bottomRight: 'br',
-  bottomLeft: 'bl'
-};
+  bottomLeft: 'bl',
+}
 
 export const directionMap: Record<string, string> = {
   top: 't',
@@ -49,5 +49,5 @@ export const directionMap: Record<string, string> = {
   inlineStart: 's',
   inlineEnd: 'e',
   blockStart: 'bs',
-  blockEnd: 'be'
-};
+  blockEnd: 'be',
+}
