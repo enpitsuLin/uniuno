@@ -4,13 +4,26 @@ export function bracketWithHint(value: string, hint?: string) {
   return `[${hint ? `${hint}:` : ''}${value.replace(/ /g, '_')}]`
 }
 
+const functionRegexp = /^(.+)\((.+)\)$/
+const argumentsRegexp = /(\d+|\.\d+)(\.\d+)?(%|deg|turn)?/g
+
 export function parseColor(str: string): string | undefined {
   if (!str)
     return
   if (str.match(hexRegexp))
     return str
-  if (str.match(/[(]|[)]/))
-    return bracketWithHint(str.replace(/ /g, ''))
+  if (str.match(/rgb|hsl|hwb|lch|lab/)) {
+    const [, type, args] = str.match(functionRegexp) as [string, string, string]
+    if (type && args) {
+      const [v1, v2, v3, a] = args.match(argumentsRegexp) as [string, string, string, string | undefined]
+
+      if (v1 && v2 && v3)
+        return bracketWithHint(`${type}(${v1} ${v2} ${v3})`) + (a ? `/${parsepercent(a)}` : '')
+    }
+
+    return bracketWithHint(str.replace(/ /g, '_'))
+  }
+
   return str
 }
 

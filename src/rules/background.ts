@@ -12,11 +12,11 @@ export const backgroundRules: Rule[] = [
 
   // images
   [/^background-image: none$/, 'bg-none'],
-  [/^background-image: url\("(.+)"\)$/, 'bg-[url(\'$1\')]'],
+  [/^background-image: url\((".+")\)$/, 'bg-[url($1)]'],
 
   // size
   [/^background-size: (\S+)$/, 'bg-$1'],
-  [/^background-size: (.+)$/, (_, p1) => `bg-${bracketWithHint(p1, 'size')}`],
+  [/^background-size: (.+)$/, (_, p1) => `bg-${bracketWithHint(p1, 'length')}`],
 
   // attachments
   [/^background-attachment: (.+)$/, 'bg-$1'],
