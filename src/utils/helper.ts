@@ -18,7 +18,7 @@ export function capitalize(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export function parsePrecent(str: string) {
+export function parsepercent(str: string) {
   if (!str)
     return
   const value = parseFloat(str)
@@ -60,9 +60,9 @@ if (import.meta.vitest) {
     expect(capitalize('wordNotExist')).toEqual('WordNotExist')
   })
 
-  test('parsePrecent work properly', () => {
-    expect(parsePrecent('.2')).toBe(20)
-    expect(parsePrecent('90%')).toBe(90)
+  test('parsepercent work properly', () => {
+    expect(parsepercent('.2')).toBe(20)
+    expect(parsepercent('90%')).toBe(90)
   })
 
   test('toFraction work properly', () => {
