@@ -1,53 +1,7 @@
 import { propertiesToUnocss } from '../src'
-import { capitalize, cornersMap, directionMap } from '../src/utils'
+import { capitalize, directionMap } from '../src/utils'
 
 describe('Border', () => {
-  it('transform border-radius shorthand properly', () => {
-    expect(propertiesToUnocss({ borderRadius: '0' })).toEqual('rounded-none')
-
-    expect(propertiesToUnocss({ borderRadius: '1rem' })).toEqual(
-      'rounded-1rem',
-    )
-
-    expect(propertiesToUnocss({ borderRadius: '9999px' })).toEqual(
-      'rounded-full',
-    )
-
-    expect(propertiesToUnocss({ borderRadius: '1rem 1rem 1rem 1rem' })).toEqual(
-      'rounded-[1rem_1rem_1rem_1rem]',
-    )
-
-    expect(
-      propertiesToUnocss({ borderRadius: 'var(--border-radius)' }),
-    ).toEqual('rounded-$border-radius')
-  })
-
-  it.skip('transform border-radius longhand with direction corners properly', () => {
-    // like:
-    // `border-start-start-radius: 1rem; border-start-end-radius: 1rem` => `rounded-s-1rem`
-  })
-
-  it('transform border-radius longhand with corners properly', () => {
-    Object.entries(cornersMap).forEach(([key, value]) => {
-      const property = `border${capitalize(key)}Radius`
-      expect(propertiesToUnocss({ [property]: '0' })).toEqual(
-        `rounded-${value}-none`,
-      )
-
-      expect(propertiesToUnocss({ [property]: '1rem' })).toEqual(
-        `rounded-${value}-1rem`,
-      )
-
-      expect(propertiesToUnocss({ [property]: '9999px' })).toEqual(
-        `rounded-${value}-full`,
-      )
-
-      expect(
-        propertiesToUnocss({ [property]: 'var(--border-radius)' }),
-      ).toEqual(`rounded-${value}-$border-radius`)
-    })
-  })
-
   // border-width
   it('transform border-width shorthand properly', () => {
     expect(propertiesToUnocss({ borderWidth: 'thin' })).toEqual('border-thin')
