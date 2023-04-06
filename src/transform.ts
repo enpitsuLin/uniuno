@@ -4,6 +4,7 @@ import type { CSSProperties, CSSProperty, Rule } from './types'
 import { borderRules, outlineRules } from './rules/border'
 import { sizingRules } from './rules/sizing'
 import { spacingRules } from './rules/spacing'
+import { tablesRules } from './rules/tables'
 
 export const shortcutPropertiesRules: Rule[] = [
   ...backgroundRules,
@@ -11,6 +12,7 @@ export const shortcutPropertiesRules: Rule[] = [
   ...outlineRules,
   ...sizingRules,
   ...spacingRules,
+  ...tablesRules,
 ]
 
 export function transformProperty<P extends CSSProperty>(
