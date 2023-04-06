@@ -31,7 +31,11 @@ export function parseColor(str: string): string | undefined {
 }
 
 export function parseLength(str: string) {
-  throw new Error('doesn\'t implemented')
+  if (!str)
+    return
+  if (str.match(/ /))
+    return bracketWithHint(str.replace(/ /g, '_'))
+  return str
 }
 
 export function capitalize(string: string) {

@@ -1,4 +1,4 @@
-import { capitalize, parseColor, parsePercent, toFraction } from '~/utils'
+import { capitalize, parseColor, parseLength, parsePercent, toFraction } from '~/utils'
 
 test('capitalize work properly', () => {
   expect(capitalize('abnormal')).toEqual('Abnormal')
@@ -52,4 +52,13 @@ describe('parseColor()', () => {
   })
 })
 
-test('parseLength work properly', () => { })
+test('parseLength work properly', () => {
+  expect(parseLength('2px')).toBe('2px')
+  expect(parseLength('2em')).toBe('2em')
+  expect(parseLength('2rem')).toBe('2rem')
+
+  expect(parseLength('1rem 2rem')).toBe('[1rem_2rem]')
+
+  expect(parseLength('max(1rem, 10vh)')).toBe('[max(1rem,_10vh)]')
+  expect(parseLength('calc(100% - 10rem)')).toBe('[calc(100%_-_10rem)]')
+})
