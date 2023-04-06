@@ -8,5 +8,8 @@ test('<color> values', () => {
     .toBe('outline-#fff')
 
   expect(transformProperty('outlineColor', 'rgba(255,255,255)'))
-    .toBe('outline-[rgb(255,255,255)]')
+    .toBe('outline-[rgba(255_255_255)]')
+
+  expect(transformProperty('outlineColor', 'rgba(255,255,255,50)'))
+    .toBe('outline-[rgba(255_255_255)]/50')
 })

@@ -12,7 +12,7 @@ export function parseColor(str: string): string | undefined {
     return
   if (str.match(hexRegexp))
     return str
-  if (str.match(/rgb|hsl|hwb/)) {
+  if (str.match(/rgb|hsl|hwb|lch|lab/)) {
     const [, type, args] = str.match(colorFunctionRegexp) as [string, string, string]
     if (type && args) {
       const [v1, v2, v3, a] = args.match(colorFunctionArgs) as [string, string, string, string | undefined]
@@ -23,8 +23,8 @@ export function parseColor(str: string): string | undefined {
 
     return bracketWithHint(str.replace(/ /g, '_'))
   }
-  if (str.match(/lch|lab|color/))
-    // TODO: how to handle this
+  if (str.match(/color/))
+    // TODO: handle this
     return str
 
   return str
