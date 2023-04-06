@@ -51,3 +51,10 @@ test('Edge offsets values', () => {
   expect(transformProperty('backgroundPosition', 'top right 10px'))
     .toBe('bg-[position:top_right_10px]')
 })
+
+test('backgroundPositionX and backgroundPositionY', () => {
+  const spy = vi.spyOn(console, 'error')
+  transformProperty('backgroundPositionX', '1px')
+  transformProperty('backgroundPositionX', '1px')
+  expect(spy).toBeCalledTimes(2)
+})
