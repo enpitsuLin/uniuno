@@ -20,13 +20,12 @@ export function transformProperty<P extends CSSProperty>(
   value: CSSProperties[P],
 ): string {
   let ret: string | undefined
+  if (property.match(/^(Webkit|Moz)/)) {
+    console.error('vendor property not support')
+    return ''
+  }
   shortcutPropertiesRules.some(([regexp, replaceTo]) => {
     const CSSValue = `${kebabCase(property)}: ${value}`
-
-    if (property.match(/Webkit|Moz/)) {
-      console.error('vendor property not support')
-      return ''
-    }
 
     if (CSSValue.match(regexp)) {
       if (replaceTo instanceof Error) {
