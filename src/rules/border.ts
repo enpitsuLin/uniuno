@@ -111,12 +111,5 @@ export const outlineRules: Rule[] = [
   [/^outline-style: (.+)$/, 'outline-$1'],
 
   // outline-offset
-  [
-    /^outline-offset: (.+)$/,
-    (_, p1) => {
-      if (p1.includes('px'))
-        return `outline-offset-${p1.replace('px', '')}`
-      return `outline-offset-${p1}`
-    },
-  ],
+  [/^outline-offset: (.+)$/, 'outline-offset-$1'],
 ]
