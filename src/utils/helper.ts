@@ -12,26 +12,33 @@ export function parseColor(str: string): string | undefined {
     return
   if (str.match(hexRegexp))
     return str
-  if (str.match(/rgb|hsl|hwb|lch|lab/)) {
+  if (str.match(/rgb|hsl|hwb/)) {
     const [, type, args] = str.match(colorFunctionRegexp) as [string, string, string]
     if (type && args) {
       const [v1, v2, v3, a] = args.match(colorFunctionArgs) as [string, string, string, string | undefined]
 
       if (v1 && v2 && v3)
-        return bracketWithHint(`${type}(${v1} ${v2} ${v3})`) + (a ? `/${parsepercent(a)}` : '')
+        return bracketWithHint(`${type}(${v1} ${v2} ${v3})`) + (a ? `/${parsePercent(a)}` : '')
     }
 
     return bracketWithHint(str.replace(/ /g, '_'))
   }
+  if (str.match(/lch|lab|color/))
+    // TODO: how to handle this
+    return str
 
   return str
+}
+
+export function parseLength(str: string) {
+  throw new Error('doesn\'t implemented')
 }
 
 export function capitalize(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export function parsepercent(str: string) {
+export function parsePercent(str: string) {
   if (!str)
     return
   const value = parseFloat(str)

@@ -1,5 +1,5 @@
 import { transformProperty } from '~/transform'
-import { parsepercent } from '~/utils'
+import { parsePercent } from '~/utils'
 
 describe('sRGB color space', () => {
   test('named color', () => {
@@ -26,7 +26,7 @@ describe('sRGB color space', () => {
         { r: '255', g: '122', b: '127', a: '80%' },
         { r: '255', g: '122', b: '127', a: '.2' },
       ].forEach(({ r, g, b, a }) => {
-        const expectOut = a ? `bg-[${name}(${r}_${g}_${b})]/${parsepercent(a)}` : `bg-[${name}(${r}_${g}_${b})]`
+        const expectOut = a ? `bg-[${name}(${r}_${g}_${b})]/${parsePercent(a)}` : `bg-[${name}(${r}_${g}_${b})]`
 
         expect(
           transformProperty(
@@ -58,7 +58,7 @@ describe('sRGB color space', () => {
         { h: '0.3turn', l: '60%', s: '45%', a: '.7' },
         { h: '0', l: '80%', s: '50%', a: '25%' },
       ].forEach(({ h, s, l, a }) => {
-        const expectOut = a ? `bg-[${name}(${h}_${s}_${l})]/${parsepercent(a)}` : `bg-[${name}(${h}_${s}_${l})]`
+        const expectOut = a ? `bg-[${name}(${h}_${s}_${l})]/${parsePercent(a)}` : `bg-[${name}(${h}_${s}_${l})]`
 
         expect(
           transformProperty(
