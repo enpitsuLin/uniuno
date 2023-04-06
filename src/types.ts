@@ -8,3 +8,4 @@ export type RuleReplacer = Parameters<String['replace']>[1] | string
 export type Rule = [regexp: RegExp, replacer: RuleReplacer | Error]
 
 export type Corners = 'startStart' | 'startEnd' | 'endEnd' | 'endStart' | 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft'
+export type Sides = 'top' | 'right' | 'left' | 'bottom' | 'inlineStart' | 'inlineEnd' | 'blockStart' | 'blockEnd'
