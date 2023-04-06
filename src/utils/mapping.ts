@@ -30,7 +30,7 @@ export const positionMap: Record<string, string> = Object.assign(
   ...basePositionMap.map(p => ({ [p]: p.replace(' ', '-') })),
 )
 
-export const cornersMap = {
+export const cornersMap: Record<string, string> = {
   startStart: 'ss',
   startEnd: 'se',
   endEnd: 'ee',

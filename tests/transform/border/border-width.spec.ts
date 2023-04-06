@@ -15,13 +15,13 @@ test('Shorthand with Keyword values', () => {
 
 test('Shorthand with <length> values', () => {
   expect(transformProperty('borderWidth', '4px'))
-    .toBe('border-4')
+    .toBe('border-4px')
 
   expect(transformProperty('borderWidth', '1.2rem'))
     .toBe('border-1.2rem')
 
   expect(transformProperty('borderWidth', '2px 1.5rem'))
-    .toBe('border-[2px_1.5rem]')
+    .toBe('border-[length:2px_1.5rem]')
 
   const spy = vi.spyOn(console, 'error')
   transformProperty('borderWidth', 'var(--border-width)')

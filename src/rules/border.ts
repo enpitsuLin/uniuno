@@ -5,6 +5,7 @@ import {
   cornersMap,
   directionMap,
   parseColor,
+  parseLength,
 } from '../utils'
 
 export const borderRules: Rule[] = [
@@ -51,11 +52,8 @@ export const borderRules: Rule[] = [
   [
     /^border-width: (.+)$/,
     (_, p1) => {
-      if (p1.includes('px'))
-        return `border-${p1.replace('px', '')}`
-      if (p1.includes(' '))
-        return `border-${bracketWithHint(p1, 'width')}`
-      return `border-${p1}`
+      const ret = `border-${parseLength(p1, 'length')}`
+      return ret
     },
   ],
   [
@@ -103,11 +101,7 @@ export const outlineRules: Rule[] = [
   // outline-width
   [
     /^outline-width: (.+)$/,
-    (_, p1) => {
-      if (p1.includes('px'))
-        return `outline-${p1.replace('px', '')}`
-      return `outline-${p1}`
-    },
+    (_, p1) => `outline-${parseLength(p1)}`,
   ],
 
   // outline-color

@@ -13,7 +13,7 @@ test('keyword values', () => {
 
 test('<length> values', () => {
   expect(transformProperty('outlineWidth', '1px'))
-    .toBe('outline-1')
+    .toBe('outline-1px')
 
   expect(transformProperty('outlineWidth', '0.1em'))
     .toBe('outline-0.1em')

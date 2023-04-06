@@ -30,11 +30,11 @@ export function parseColor(str: string): string | undefined {
   return str
 }
 
-export function parseLength(str: string) {
+export function parseLength(str: string, hint?: string) {
   if (!str)
     return
   if (str.match(/ /))
-    return bracketWithHint(str.replace(/ /g, '_'))
+    return bracketWithHint(str.replace(/ /g, '_'), hint)
   return str
 }
 
