@@ -38,9 +38,9 @@ test('Longhand on every sides', () => {
       .toBe(`border-${value}-0`)
 
     expect(transformProperty(property, '1px'))
-      .toBe(`border-${value}-1`)
+      .toBe(`border-${value}-1px`)
 
-    expect(transformProperty(property, '1rem 1rem 1rem 1rem'))
-      .toBe(`border-${value}-[width:1rem_1rem_1rem_1rem]`)
+    expect(transformProperty(property, 'calc(1px + 1px)'))
+      .toBe(`border-${value}-[length:calc(1px_+_1px)]`)
   })
 })

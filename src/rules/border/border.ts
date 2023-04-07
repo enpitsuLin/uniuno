@@ -54,10 +54,8 @@ export const borderRules: Rule[] = [
     /^border-(.+)-width: (.+)$/,
     (_, p1, p2) => {
       const direction = directionMap[camelCase(p1)]
-      if (p2.includes('px'))
-        return `border-${direction}-${p2.replace('px', '')}`
       if (p2.includes(' '))
-        return `border-${direction}-${bracketWithHint(p2, 'width')}`
+        return `border-${direction}-${bracketWithHint(p2, 'length')}`
       return `border-${direction}-${p2}`
     },
   ],
