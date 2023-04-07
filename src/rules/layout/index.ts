@@ -2,6 +2,7 @@ import type { Rule } from '~/types'
 import { parseLength } from '~/utils'
 
 export * from './display'
+export * from './columns'
 
 export const aspectRatioRules: Rule[] = [
   [/^aspect-ratio: (.+)$/, (_, p1) => {
