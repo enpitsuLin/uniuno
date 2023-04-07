@@ -3,7 +3,7 @@ import type { Corners } from '~/types'
 import { capitalize, cornersMap } from '~/utils'
 
 describe('Radius shorthand', () => {
-  it('radius for all 4 sides', () => {
+  it('<length> values radius for all 4 sides', () => {
     expect(transformProperty('borderRadius', '0'))
       .toBe('rounded-none')
 
@@ -13,7 +13,7 @@ describe('Radius shorthand', () => {
     expect(transformProperty('borderRadius', '9999px'))
       .toBe('rounded-full')
   })
-  it('radius for other values', () => {
+  it('other values', () => {
     expect(transformProperty('borderRadius', '1rem 1rem 1rem 1rem'))
       .toBe('rounded-[1rem_1rem_1rem_1rem]')
 
@@ -38,6 +38,9 @@ describe('Radius longhand', () => {
 
       expect(transformProperty(property, 'var(--border-radius)'))
         .toBe(`rounded-${value}-$border-radius`)
+
+      expect(transformProperty(property, 'calc(2px + 2px)'))
+        .toBe(`rounded-${value}-[calc(2px_+_2px)]`)
     })
   })
 })

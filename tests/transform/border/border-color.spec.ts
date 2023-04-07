@@ -14,6 +14,9 @@ test('Shorthand with <color> values', () => {
 
   expect(transformProperty('borderColor', 'rgb(255,255,255,50)'))
     .toBe('border-[rgb(255_255_255)]/50')
+
+  expect(transformProperty('borderColor', 'var(--border-color)'))
+    .toBe('border-$border-color')
 })
 
 test('Longhand with <color> values on every sides', () => {
@@ -31,5 +34,8 @@ test('Longhand with <color> values on every sides', () => {
 
     expect(transformProperty(property, 'rgb(255,255,255,50)'))
       .toBe(`border-${value}-[rgb(255_255_255)]/50`)
+
+    expect(transformProperty(property, 'var(--border-color)'))
+      .toBe(`border-${value}-$border-color`)
   })
 })
