@@ -65,3 +65,7 @@ export const positionRules: Rule[] = [
 export const positionedRules: Rule[] = [
   [/^(top|right|bottom|left): (.+)$/, (_, p1, p2) => `${p1}-${parseLength(p2)}`],
 ]
+
+export const visibilityRules: Rule[] = [
+  [/^visibility: (.+)$/, '$1'],
+]

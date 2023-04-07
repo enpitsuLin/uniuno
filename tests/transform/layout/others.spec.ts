@@ -134,3 +134,14 @@ describe('top/right/bottom/left', () => {
     })
   })
 })
+
+describe('visibility', () => {
+  test('keyword values', () => {
+    expect(transformProperty('visibility', 'visible'))
+      .toBe('visible')
+    expect(transformProperty('visibility', 'hidden'))
+      .toBe('hidden')
+    expect(transformProperty('visibility', 'collapse'))
+      .toBe('collapse')
+  })
+})
