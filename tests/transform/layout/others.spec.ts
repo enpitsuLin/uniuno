@@ -25,6 +25,15 @@ describe('box-decoration-break', () => {
   })
 })
 
+describe('box-sizing', () => {
+  test('keyword value', () => {
+    expect(transformProperty('boxSizing', 'border-box'))
+      .toBe('box-border')
+    expect(transformProperty('boxSizing', 'content-box'))
+      .toBe('box-content')
+  })
+})
+
 describe('isolation', () => {
   test('keyword values', () => {
     expect(transformProperty('isolation', 'isolate'))
