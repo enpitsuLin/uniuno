@@ -15,6 +15,26 @@ convert css property to unocss utilities
 </summary>
 
 - [ ] Layout
+  - [ ] Aspect Ratio
+  - [ ] Container (?)
+  - [ ] Columns
+  - [ ] Break After
+  - [ ] Break Before
+  - [ ] Break Inside
+  - [ ] Box Decoration Break
+  - [ ] Box Sizing
+  - [x] Display
+  - [x] Floats
+  - [x] Clear
+  - [x] Isolation
+  - [x] Object Fit
+  - [x] Object Position
+  - [x] Overflow
+  - [ ] Overscroll Behavior
+  - [ ] Position
+  - [ ] Top / Right / Bottom / Left
+  - [ ] Visibility
+  - [ ] Z-Index
 - [ ] Flexbox & Grid
 - [ ] Spacing
   - [x] Padding
@@ -56,7 +76,7 @@ convert css property to unocss utilities
   - [ ] Ring Offset Color
 - [ ] Effects
 - [ ] Filters
-- [ ] Tables
+- [x] Tables
 - [ ] Transition & Animation
 - [ ] Transforms
 - [ ] Interactivity
