@@ -55,4 +55,11 @@ test('other values', () => {
     .toBe('inline-list-item')
 })
 
-test.skip('multi-keyword syntax for outsite-inside value')
+/** @link https://developer.mozilla.org/en-US/docs/Web/CSS/display#grouped_values */
+test('multi-keyword syntax for outsite-inside value', () => {
+  expect(transformProperty('display', 'block flex'))
+    .toBe('display-[block_flex]')
+
+  expect(transformProperty('display', 'inline flex'))
+    .toBe('display-[inline_flex]')
+})
