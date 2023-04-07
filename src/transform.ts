@@ -1,19 +1,6 @@
 import kebabCase from 'kebab-case'
-import { backgroundRules } from './rules/background'
-import type { CSSProperties, CSSProperty, Rule } from './types'
-import { borderRules, outlineRules } from './rules/border'
-import { sizingRules } from './rules/sizing'
-import { spacingRules } from './rules/spacing'
-import { tablesRules } from './rules/tables'
-
-export const shortcutPropertiesRules: Rule[] = [
-  ...backgroundRules,
-  ...borderRules,
-  ...outlineRules,
-  ...sizingRules,
-  ...spacingRules,
-  ...tablesRules,
-]
+import type { CSSProperties, CSSProperty } from './types'
+import rules from '~/rules'
 
 export function transformProperty<P extends CSSProperty>(
   property: P,
@@ -24,7 +11,7 @@ export function transformProperty<P extends CSSProperty>(
     console.error('vendor property not support')
     return ''
   }
-  shortcutPropertiesRules.some(([regexp, replaceTo]) => {
+  rules.some(([regexp, replaceTo]) => {
     const CSSValue = `${kebabCase(property)}: ${value}`
 
     if (CSSValue.match(regexp)) {
