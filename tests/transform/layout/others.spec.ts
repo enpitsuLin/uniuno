@@ -113,16 +113,21 @@ describe('position', () => {
 })
 
 describe('top/right/bottom/left', () => {
-  (<const>['top', 'right', 'bottom', 'left']).forEach((side) => {
-    expect(transformProperty(side, '3px'))
-      .toBe(`${side}-3px`)
-    expect(transformProperty(side, '2.4em'))
-      .toBe(`${side}-2.4em`)
+  test('<length> value', () => {
+    (<const>['top', 'right', 'bottom', 'left']).forEach((side) => {
+      expect(transformProperty(side, '3px'))
+        .toBe(`${side}-3px`)
+      expect(transformProperty(side, '2.4em'))
+        .toBe(`${side}-2.4em`)
+    })
+  })
 
-    expect(transformProperty(side, '10%'))
-      .toBe(`${side}-10%`)
-
-    expect(transformProperty(side, 'auto'))
-      .toBe(`${side}-auto`)
+  test('precentage values and others', () => {
+    (<const>['top', 'right', 'bottom', 'left']).forEach((side) => {
+      expect(transformProperty(side, '10%'))
+        .toBe(`${side}-10%`)
+      expect(transformProperty(side, 'auto'))
+        .toBe(`${side}-auto`)
+    })
   })
 })

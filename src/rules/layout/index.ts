@@ -56,3 +56,12 @@ export const objectPositionRules: Rule[] = [
     return `object-${p1.replace(' ', '-')}`
   }],
 ]
+
+export const overscrollBehaviorRules: Rule[] = [
+  [/^overscroll-behavior: ([\S]+)$/, 'overscroll-$1'],
+  [/^overscroll-behavior: ([\S]+) ([\S]+)$/, 'overscroll-x-$1 overscroll-y-$2'],
+]
+
+export const positionRules: Rule[] = [
+  [/^position: (.+)$/, '$1'],
+]
