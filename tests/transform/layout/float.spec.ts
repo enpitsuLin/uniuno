@@ -8,7 +8,8 @@ describe('Floats', () => {
       .toBe('float-right')
     expect(transformProperty('float', 'none'))
       .toBe('float-none')
-    it.skip('doesn\'t support on unocss', () => {
+
+    it.skip('NOT in unocss', () => {
       expect(transformProperty('float', 'inline-start'))
         .toBe('float-inline-start')
       expect(transformProperty('float', 'inline-end'))
@@ -27,7 +28,8 @@ describe('Clear', () => {
       .toBe('clear-both')
     expect(transformProperty('clear', 'none'))
       .toBe('clear-none')
-    it.skip('doesn\'t support on unocss', () => {
+
+    it.skip('NOT in unocss', () => {
       expect(transformProperty('clear', 'inline-start'))
         .toBe('clear-inline-start')
       expect(transformProperty('clear', 'inline-end'))
