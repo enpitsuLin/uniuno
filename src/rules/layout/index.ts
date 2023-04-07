@@ -64,7 +64,7 @@ export const positionRules: Rule[] = [
 ]
 
 export const positionedRules: Rule[] = [
-  [/^(top|right|bottom|left): (.+)$/, (_, p1, p2) => `${p1}-${parseLength(p2)}`],
+  [/^(top|right|bottom|left): (-?)(.+)$/, (_, p1, p2, p3) => `${p2 === '' ? '' : '-'}${p1}-${parseLength(p3)}`],
 ]
 
 export const visibilityRules: Rule[] = [
@@ -72,5 +72,5 @@ export const visibilityRules: Rule[] = [
 ]
 
 export const zIndexRules: Rule[] = [
-  [/^z-index: (-?)(\d+|auto)$/, (_, p1, p2) => p1 === '' ? `z-${p2}` : `-z-${p2}`],
+  [/^z-index: (-?)(\d+|auto)$/, (_, p1, p2) => `${p1 === '' ? '' : '-'}z-${p2}`],
 ]
