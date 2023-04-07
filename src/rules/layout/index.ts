@@ -38,13 +38,8 @@ export const isolationRules: Rule[] = [
 ]
 
 export const overflowRules: Rule[] = [
-  [/^overflow: (.+)$/, (_, p1) => {
-    if (p1.match(/ /)) {
-      const [x, y] = p1.split(' ')
-      return `overflow-x-${x} overflow-y-${y}`
-    }
-    return `overflow-${p1}`
-  }],
+  [/^overflow: ([\S]+)$/, 'overflow-$1'],
+  [/^overflow: ([\S]+) ([\S]+)$/, 'overflow-x-$1 overflow-y-$2'],
 ]
 
 export const objectFitRules: Rule[] = [
