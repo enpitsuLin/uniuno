@@ -1,16 +1,15 @@
 import { backgroundRules } from './background'
-import { borderRules, outlineRules } from './border'
+import * as border from './border'
 import { sizingRules } from './sizing'
 import { spacingRules } from './spacing'
 import { tablesRules } from './tables'
-import { displayRules } from './layout'
+import * as layout from './layout'
 
 export default [
   backgroundRules,
-  borderRules,
-  outlineRules,
+  Object.values(border).flat(1),
   sizingRules,
   spacingRules,
   tablesRules,
-  displayRules,
+  Object.values(layout).flat(1),
 ].flat(1)
