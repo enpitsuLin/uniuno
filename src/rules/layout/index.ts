@@ -21,6 +21,10 @@ export const boxDecorationBreakRules: Rule[] = [
   [/^box-decoration-break: (.+)$/, 'box-decoration-$1'],
 ]
 
+export const boxSizingRules: Rule[] = [
+  [/^box-sizing: (.+)-box$/, 'box-$1'],
+]
+
 export const floatRules: Rule[] = [
   // there is no rules just kebabCase the property
 ]
