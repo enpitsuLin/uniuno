@@ -16,6 +16,15 @@ describe('aspect-radio', () => {
   })
 })
 
+describe('box-decoration-break', () => {
+  test('keyword values', () => {
+    expect(transformProperty('boxDecorationBreak', 'slice'))
+      .toBe('box-decoration-slice')
+    expect(transformProperty('boxDecorationBreak', 'clone'))
+      .toBe('box-decoration-clone')
+  })
+})
+
 describe('isolation', () => {
   test('keyword values', () => {
     expect(transformProperty('isolation', 'isolate'))
