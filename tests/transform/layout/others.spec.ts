@@ -145,3 +145,18 @@ describe('visibility', () => {
       .toBe('collapse')
   })
 })
+
+describe('z-index', () => {
+  test('keyword', () => {
+    expect(transformProperty('zIndex', 'auto'))
+      .toBe('z-auto')
+  })
+
+  test('<integer> values', () => {
+    expect(transformProperty('zIndex', '10'))
+      .toBe('z-10')
+
+    expect(transformProperty('zIndex', '-10'))
+      .toBe('-z-10')
+  })
+})

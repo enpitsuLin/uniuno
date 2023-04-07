@@ -70,3 +70,7 @@ export const positionedRules: Rule[] = [
 export const visibilityRules: Rule[] = [
   [/^visibility: (.+)$/, '$1'],
 ]
+
+export const zIndexRules: Rule[] = [
+  [/^z-index: (-?)(\d+|auto)$/, (_, p1, p2) => p1 === '' ? `z-${p2}` : `-z-${p2}`],
+]
