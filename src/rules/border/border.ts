@@ -41,7 +41,7 @@ export const borderRules: Rule[] = [
   // border-width
   [
     /^border-width: var\(--(.+)\)$/,
-    new Error('css variable not support with border-width'),
+    (_, p1) => `border-[length:$${p1}]`,
   ],
   [
     /^border-width: (.+)$/,

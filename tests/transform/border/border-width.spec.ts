@@ -23,9 +23,8 @@ test('Shorthand with <length> values', () => {
   expect(transformProperty('borderWidth', '2px 1.5rem'))
     .toBe('border-[length:2px_1.5rem]')
 
-  const spy = vi.spyOn(console, 'error')
-  transformProperty('borderWidth', 'var(--border-width)')
-  expect(spy).toHaveBeenCalledTimes(1)
+  expect(transformProperty('borderWidth', 'var(--border-width)'))
+    .toBe('border-[length:$border-width]')
 })
 
 test('Longhand on every sides', () => {
