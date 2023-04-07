@@ -38,8 +38,8 @@ export function parseLength(str: string, hint?: string) {
   return str
 }
 
-export function capitalize(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+export function capitalize<T extends string>(string: T): Capitalize<T> {
+  return string.charAt(0).toUpperCase() + string.slice(1) as unknown as Capitalize<T>
 }
 
 export function parsePercent(str: string) {
