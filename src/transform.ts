@@ -13,8 +13,9 @@ export function transformProperty<P extends CSSProperty>(
   }
   rules.some(([regexp, replaceTo]) => {
     const CSSValue = `${kebabCase(property)}: ${value}`
+    const matched = CSSValue.match(regexp)
 
-    if (CSSValue.match(regexp)) {
+    if (matched) {
       if (replaceTo instanceof Error) {
         // log the error message and output empty
         console.error(replaceTo.message)
@@ -26,7 +27,7 @@ export function transformProperty<P extends CSSProperty>(
       }
     }
 
-    return CSSValue.match(regexp)
+    return matched
   })
   if (typeof ret === 'undefined')
     return `${kebabCase(property)}-${value}`
