@@ -4,12 +4,15 @@ import { sizingRules } from './sizing'
 import { spacingRules } from './spacing'
 import { tablesRules } from './tables'
 import * as layout from './layout'
+import * as effects from './effects'
+import type { Rule } from '~/types'
 
-export default [
+export default <Rule[]>[
   backgroundRules,
   Object.values(border).flat(1),
   sizingRules,
   spacingRules,
   tablesRules,
   Object.values(layout).flat(1),
+  Object.values(effects).flat(1),
 ].flat(1)
