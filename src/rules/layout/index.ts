@@ -2,6 +2,17 @@ import type { Rule } from '~/types'
 
 export * from './display'
 
+export const AspectRatioRules: Rule[] = [
+  [/^aspect-ratio: (.+)$/, (_, p1) => {
+    const ratio = p1.replace(/ /g, '')
+    if (ratio === '1/1')
+      return 'aspect-square'
+    if (ratio === '16/9')
+      return 'aspect-video'
+    return `aspect-${ratio}`
+  }],
+]
+
 export const floatRules: Rule[] = [
   // there is no rules just kebabCase the property
 ]
