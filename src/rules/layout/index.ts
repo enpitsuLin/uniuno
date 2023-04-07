@@ -2,7 +2,7 @@ import type { Rule } from '~/types'
 
 export * from './display'
 
-export const AspectRatioRules: Rule[] = [
+export const aspectRatioRules: Rule[] = [
   [/^aspect-ratio: (.+)$/, (_, p1) => {
     const ratio = p1.replace(/ /g, '')
     if (ratio === '1/1')
@@ -11,6 +11,10 @@ export const AspectRatioRules: Rule[] = [
       return 'aspect-video'
     return `aspect-${ratio}`
   }],
+]
+
+export const breakRules: Rule[] = [
+  // there is no rules just kebabCase the property
 ]
 
 export const floatRules: Rule[] = [
