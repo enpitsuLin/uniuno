@@ -1,4 +1,5 @@
 import type { Rule } from '~/types'
+import { parseLength } from '~/utils'
 
 export * from './display'
 
@@ -59,4 +60,8 @@ export const overscrollBehaviorRules: Rule[] = [
 
 export const positionRules: Rule[] = [
   [/^position: (.+)$/, '$1'],
+]
+
+export const positionedRules: Rule[] = [
+  [/^(top|right|bottom|left): (.+)$/, (_, p1, p2) => `${p1}-${parseLength(p2)}`],
 ]

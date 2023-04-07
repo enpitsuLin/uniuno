@@ -128,6 +128,9 @@ describe('top/right/bottom/left', () => {
         .toBe(`${side}-10%`)
       expect(transformProperty(side, 'auto'))
         .toBe(`${side}-auto`)
+
+      expect(transformProperty(side, 'calc(10px + 0.5em)'))
+        .toBe(`${side}-[calc(10px_+_0.5em)]`)
     })
   })
 })
