@@ -1,5 +1,21 @@
 import { transformProperty } from '~/transform'
 
+describe('aspect-radio', () => {
+  test('value offer by preset', () => {
+    expect(transformProperty('aspectRatio', '1 / 1'))
+      .toBe('aspect-square')
+    expect(transformProperty('aspectRatio', '16 / 9'))
+      .toBe('aspect-video')
+  })
+
+  test('other values', () => {
+    expect(transformProperty('aspectRatio', '1 / 2'))
+      .toBe('aspect-1/2')
+    expect(transformProperty('aspectRatio', '2'))
+      .toBe('aspect-2')
+  })
+})
+
 describe('isolation', () => {
   test('keyword values', () => {
     expect(transformProperty('isolation', 'isolate'))
