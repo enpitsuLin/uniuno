@@ -80,3 +80,49 @@ describe('object-position', () => {
       .toBe('object-top')
   })
 })
+
+describe('overscroll-behavior', () => {
+  test('keyword values', () => {
+    expect(transformProperty('overscrollBehavior', 'auto'))
+      .toBe('overscroll-auto')
+    expect(transformProperty('overscrollBehavior', 'contain'))
+      .toBe('overscroll-contain')
+    expect(transformProperty('overscrollBehavior', 'none'))
+      .toBe('overscroll-none')
+  })
+
+  test('two values', () => {
+    expect(transformProperty('overscrollBehavior', 'auto contain'))
+      .toBe('overscroll-x-auto overscroll-y-contain')
+  })
+})
+
+describe('position', () => {
+  test('keyword values', () => {
+    expect(transformProperty('position', 'static'))
+      .toBe('static')
+    expect(transformProperty('position', 'relative'))
+      .toBe('relative')
+    expect(transformProperty('position', 'absolute'))
+      .toBe('absolute')
+    expect(transformProperty('position', 'fixed'))
+      .toBe('fixed')
+    expect(transformProperty('position', 'sticky'))
+      .toBe('sticky')
+  })
+})
+
+describe('top/right/bottom/left', () => {
+  (<const>['top', 'right', 'bottom', 'left']).forEach((side) => {
+    expect(transformProperty(side, '3px'))
+      .toBe(`${side}-3px`)
+    expect(transformProperty(side, '2.4em'))
+      .toBe(`${side}-2.4em`)
+
+    expect(transformProperty(side, '10%'))
+      .toBe(`${side}-10%`)
+
+    expect(transformProperty(side, 'auto'))
+      .toBe(`${side}-auto`)
+  })
+})
