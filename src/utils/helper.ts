@@ -46,7 +46,7 @@ export function parsePercent(str: string) {
   if (!str)
     return
   const value = parseFloat(str)
-  if (value <= 1)
+  if (!str.includes('%'))
     return value * 100
   else return value
 }

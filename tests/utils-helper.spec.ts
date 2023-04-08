@@ -8,7 +8,9 @@ test('capitalize work properly', () => {
 
 test('parsepercent work properly', () => {
   expect(parsePercent('.2')).toBe(20)
+  expect(parsePercent('2')).toBe(200)
   expect(parsePercent('90%')).toBe(90)
+  expect(parsePercent('200%')).toBe(200)
 })
 
 test('toFraction work properly', () => {
