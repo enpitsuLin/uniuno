@@ -5,6 +5,7 @@ import { spacingRules } from './spacing'
 import { tablesRules } from './tables'
 import * as layout from './layout'
 import * as effects from './effects'
+import { filterRules } from './filter/filter'
 import type { Rule } from '~/types'
 
 export default <Rule[]>[
@@ -15,4 +16,5 @@ export default <Rule[]>[
   tablesRules,
   Object.values(layout).flat(1),
   Object.values(effects).flat(1),
+  filterRules,
 ].flat(1)

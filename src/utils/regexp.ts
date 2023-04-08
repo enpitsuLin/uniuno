@@ -12,3 +12,5 @@ export const hexRegexp = /^#(?:[0-9a-fA-F]{3}){1,2}(?:[0-9a-fA-F]{2})?$/
 export const colorFunctionRegexp = /^(.+)\((.+)\)$/
 
 export const colorFunctionArgs = /(\d+|\.\d+)(\.\d+)?(%|deg|turn)?/g
+
+export const filterFunction = /blur|brightness|contrast|drop-shadow|grayscale|hue-rotate|invert|saturate|sepia/g
