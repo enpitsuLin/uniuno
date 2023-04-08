@@ -51,6 +51,14 @@ export function parsePercent(str: string) {
   else return value
 }
 
+export function parseAngle(str: string) {
+  if (!str)
+    return
+  if (str.includes('deg'))
+    return parseFloat(str).toString()
+  return str
+}
+
 function gcd(a: number, b: number): number {
   return b === 0 ? a : gcd(b, a % b)
 }

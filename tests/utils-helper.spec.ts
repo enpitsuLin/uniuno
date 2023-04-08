@@ -1,4 +1,4 @@
-import { capitalize, parseColor, parseLength, parsePercent, toFraction } from '~/utils'
+import { capitalize, parseAngle, parseColor, parseLength, parsePercent, toFraction } from '~/utils'
 
 test('capitalize work properly', () => {
   expect(capitalize('abnormal')).toEqual('Abnormal')
@@ -63,4 +63,11 @@ test('parseLength work properly', () => {
 
   expect(parseLength('max(1rem, 10vh)')).toBe('[max(1rem,_10vh)]')
   expect(parseLength('calc(100% - 10rem)')).toBe('[calc(100%_-_10rem)]')
+})
+
+test('parseAngle work properly', () => {
+  expect(parseAngle('80deg')).toBe('80')
+  expect(parseAngle('80turn')).toBe('80turn')
+  expect(parseAngle('200grad')).toBe('200grad')
+  expect(parseAngle('3.14159rad')).toBe('3.14159rad')
 })
