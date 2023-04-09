@@ -4,32 +4,35 @@ import { filterFunction } from '~/utils/regexp'
 
 export const filterRules: Rule[] = [
   [
-    /^filter: (.+)$/g,
-    (_, p1: string) => {
-      const list = p1.split(filterFunction)
-      const fns = p1.match(filterFunction) as string[]
+    /^(backdrop-)?filter: (.+)$/g,
+    (_, p1, p2: string) => {
+      const list = p2.split(filterFunction)
+      const fns = p2.match(filterFunction) as string[]
       const args = list.filter(i => i !== '')
       return fns.map((fn, index) => {
         const value = args[index].trim().replace(/\(|\)/g, '')
+        let ret = ''
         if (fn === 'blur')
-          return `blur-${value}`
+          ret = `blur-${value}`
         else if (fn === 'brightness')
-          return `brightness-${parsePercent(value)}`
+          ret = `brightness-${parsePercent(value)}`
         else if (fn === 'contrast')
-          return `contrast-${parsePercent(value)}`
+          ret = `contrast-${parsePercent(value)}`
         else if (fn === 'drop-shadow')
-          return `drop-shadow-${bracketWithHint(value)}`
+          ret = `drop-shadow-${bracketWithHint(value)}`
         else if (fn === 'grayscale')
-          return `grayscale-${parsePercent(value)}`
+          ret = `grayscale-${parsePercent(value)}`
         else if (fn === 'hue-rotate')
-          return `${value.startsWith('-') ? '-' : ''}hue-rotate-${parseAngle(value.replace('-', ''))}`
+          ret = `${value.startsWith('-') ? '-' : ''}hue-rotate-${parseAngle(value.replace('-', ''))}`
         else if (fn === 'invert')
-          return `invert-${parsePercent(value)}`
+          ret = `invert-${parsePercent(value)}`
         else if (fn === 'saturate')
-          return `saturate-${parsePercent(value)}`
+          ret = `saturate-${parsePercent(value)}`
         else if (fn === 'sepia')
-          return `sepia-${parsePercent(value)}`
-        return ''
+          ret = `sepia-${parsePercent(value)}`
+        else if (fn === 'opacity')
+          ret = `opacity-${parsePercent(value)}`
+        return `${p1 ?? ''}${ret}`
       }).join(' ')
     },
   ],

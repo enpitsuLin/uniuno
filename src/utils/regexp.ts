@@ -13,4 +13,4 @@ export const colorFunctionRegexp = /^(.+)\((.+)\)$/
 
 export const colorFunctionArgs = /(\d+|\.\d+)(\.\d+)?(%|deg|turn)?/g
 
-export const filterFunction = /blur|brightness|contrast|drop-shadow|grayscale|hue-rotate|invert|saturate|sepia/g
+export const filterFunction = /blur|brightness|contrast|drop-shadow|grayscale|hue-rotate|opacity|invert|saturate|sepia/g
