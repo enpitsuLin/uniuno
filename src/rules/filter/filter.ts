@@ -11,28 +11,28 @@ export const filterRules: Rule[] = [
       const args = list.filter(i => i !== '')
       return fns.map((fn, index) => {
         const value = args[index].trim().replace(/\(|\)/g, '')
-        let ret = ''
+
         if (fn === 'blur')
-          ret = `blur-${value}`
+          return `${p1 ?? ''}blur-${value}`
         else if (fn === 'brightness')
-          ret = `brightness-${parsePercent(value)}`
+          return `${p1 ?? ''}brightness-${parsePercent(value)}`
         else if (fn === 'contrast')
-          ret = `contrast-${parsePercent(value)}`
+          return `${p1 ?? ''}contrast-${parsePercent(value)}`
         else if (fn === 'drop-shadow')
-          ret = `drop-shadow-${bracketWithHint(value)}`
+          return `${p1 ?? ''}drop-shadow-${bracketWithHint(value)}`
         else if (fn === 'grayscale')
-          ret = `grayscale-${parsePercent(value)}`
+          return `${p1 ?? ''}grayscale-${parsePercent(value)}`
         else if (fn === 'hue-rotate')
-          ret = `${value.startsWith('-') ? '-' : ''}hue-rotate-${parseAngle(value.replace('-', ''))}`
+          return `${value.startsWith('-') ? '-' : ''}${p1 ?? ''}hue-rotate-${parseAngle(value.replace('-', ''))}`
         else if (fn === 'invert')
-          ret = `invert-${parsePercent(value)}`
+          return `${p1 ?? ''}invert-${parsePercent(value)}`
         else if (fn === 'saturate')
-          ret = `saturate-${parsePercent(value)}`
+          return `${p1 ?? ''}saturate-${parsePercent(value)}`
         else if (fn === 'sepia')
-          ret = `sepia-${parsePercent(value)}`
+          return `${p1 ?? ''}sepia-${parsePercent(value)}`
         else if (fn === 'opacity')
-          ret = `opacity-${parsePercent(value)}`
-        return `${p1 ?? ''}${ret}`
+          return `${p1 ?? ''}opacity-${parsePercent(value)}`
+        return ''
       }).join(' ')
     },
   ],
