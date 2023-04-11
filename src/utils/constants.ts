@@ -51,3 +51,5 @@ export const directionMap: Record<string, string> = {
   blockStart: 'bs',
   blockEnd: 'be',
 }
+
+export const timingFunctions = ['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear', 'step-start', 'step-end']
