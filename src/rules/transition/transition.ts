@@ -1,7 +1,5 @@
 import type { Rule } from '~/types'
-import { bracketWithHint } from '~/utils'
-
-const functionTypes = ['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear', 'step-start', 'step-end']
+import { bracketWithHint, timingFunctions } from '~/utils'
 
 export const transitionPropertRules: Rule[] = [
   [/^transition-property: (.+)$/, (_, p1) => {
@@ -17,7 +15,7 @@ export const transitionDurationRules: Rule[] = [
 
 export const transitionTimingFunctionRules: Rule[] = [
   [/^transition-timing-function: (.+)$/, (_, p1) => {
-    if (functionTypes.includes(p1)) {
+    if (timingFunctions.includes(p1)) {
       if (p1 === 'linear')
         return 'ease-linear'
       return p1
