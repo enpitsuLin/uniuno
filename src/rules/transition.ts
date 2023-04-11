@@ -8,3 +8,7 @@ export const transitionPropertRules: Rule[] = [
     return `transition-property-${p1}`
   }],
 ]
+
+export const transitionDurationRules: Rule[] = [
+  [/^transition-duration: (.+)$/, 'duration-$1'],
+]

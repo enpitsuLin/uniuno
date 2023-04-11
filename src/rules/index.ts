@@ -6,7 +6,7 @@ import { tablesRules } from './tables'
 import * as layout from './layout'
 import * as effects from './effects'
 import { filterRules } from './filter/filter'
-import { transitionPropertRules } from './transition'
+import * as transition from './transition'
 import type { Rule } from '~/types'
 
 export default <Rule[]>[
@@ -18,5 +18,5 @@ export default <Rule[]>[
   Object.values(layout).flat(1),
   Object.values(effects).flat(1),
   filterRules,
-  transitionPropertRules,
+  Object.values(transition).flat(1),
 ].flat(1)
