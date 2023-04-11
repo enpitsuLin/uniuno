@@ -1,2 +1,2 @@
-export * from './mapping'
+export * from './constants'
 export * from './helper'
