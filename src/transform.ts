@@ -22,8 +22,18 @@ export function transformProperty<P extends CSSProperty>(
         ret = ''
       }
       else {
-        // @ts-expect-error: as its overload but error
-        ret = CSSValue.replace(regexp, replaceTo)
+        // eslint-disable-next-line max-statements-per-line
+        if (typeof replaceTo === 'string') { ret = CSSValue.replace(regexp, replaceTo) }
+        else {
+          ret = CSSValue.replace(regexp, (substring, ...args: string[]) => {
+            const replaced = replaceTo(substring, ...args)
+            if (replaced instanceof Error) {
+              console.error(replaced.message)
+              return ''
+            }
+            return replaced
+          })
+        }
       }
     }
 
