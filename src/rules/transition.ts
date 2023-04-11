@@ -25,3 +25,7 @@ export const transitionTimingFunctionRules: Rule[] = [
     return `ease-${bracketWithHint(p1)}`
   }],
 ]
+
+export const transitionDelayRules: Rule[] = [
+  [/^transition-delay: (.+)$/, 'delay-$1'],
+]
