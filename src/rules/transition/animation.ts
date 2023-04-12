@@ -35,3 +35,11 @@ export const animationEaseRules: Rule[] = [
 export const animationFillModeRules: Rule[] = [
   [/^animation-fill-mode: (.+)$/, 'animate-fill-mode-$1'],
 ]
+
+export const animationDirectionRules: Rule[] = [
+  [/^animation-direction: (.+)$/, (_, p1) => {
+    if (p1.match(/ /g))
+      return `animate-direction-${bracketWithHint(p1)}`
+    return `animate-direction-${p1}`
+  }],
+]
