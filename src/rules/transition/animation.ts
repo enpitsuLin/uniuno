@@ -38,8 +38,20 @@ export const animationFillModeRules: Rule[] = [
 
 export const animationDirectionRules: Rule[] = [
   [/^animation-direction: (.+)$/, (_, p1) => {
-    if (p1.match(/ /g))
+    if (p1.match(/ |,/g))
       return `animate-direction-${bracketWithHint(p1)}`
     return `animate-direction-${p1}`
   }],
+]
+
+export const animationIterationCountRules: Rule[] = [
+  [/^animation-iteration-count: (.+)$/, (_, p1) => {
+    if (p1.match(/ |,/g))
+      return `animate-iteration-${bracketWithHint(p1)}`
+    return `animate-iteration-${p1}`
+  }],
+]
+
+export const animationPlayStateRules: Rule[] = [
+  [/^animation-play-state: (.+)$/, 'animate-play-state-$1'],
 ]
